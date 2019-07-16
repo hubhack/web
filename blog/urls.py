@@ -29,8 +29,9 @@ def index(request:HttpResponse):
         'd':'abc', 'date':datetime.datetime.now()
     }
 
+    data = ['{}*{}={}'.format(j, i, j*i) for i in range(1, 10)for j in range(1, 10)]
 
-    context = {'content': 'www.magedu.com', 'mydict':my_dict}
+    context = {'content': 'www.magedu.com', 'my_dict':my_dict, 'data':data}
     return render(request, 'index.html', context)
 
 

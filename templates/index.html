@@ -3,15 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        .nav{overflow:hidden}
-        .nav li{float:left;list-style:none;margin:0 20px; }
-    </style>
+
 </head>
 <body>
-  <ul class='nav'>
-      <li><a href='post1.html'>首页</a> </li>
+<ul>
+    {%for line in my_dict.c %}
 
-  </ul>
+    <li style="color: {{forloop.counter|divisibleby:"2"|yesno:"red,blue"}}">
+        {{forloop.counter}} {{line|add:"100"}}
+    </li>
+    {%endfor%}
+</ul>
+
+<table>
+    {% for x in data %}
+    {% if forloop.counter0|divisibleby:9 %}<tr>{% endif %}
+        <td>{{x}}</td>
+    {% if forloop.counter|divisibleby:9 %}</tr>{% endif %}
+    {% endfor %}
+</table>
+
+
+
+
+
 </body>
 </html>
