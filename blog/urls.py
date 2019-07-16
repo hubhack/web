@@ -13,9 +13,31 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
+from django.http import HttpRequest, HttpResponse, JsonResponse
+import datetime
+from django.template.loader import get_template
+from django.shortcuts import render
+
+def index(request:HttpResponse):
+    """视图函数:请求进来返回响应"""
+    my_dict = {
+        'a':100,
+        'b':0,
+        'c':list(range(10,20)),
+        'd':'abc', 'date':datetime.datetime.now()
+    }
+
+
+    context = {'content': 'www.magedu.com', 'mydict':my_dict}
+    return render(request, 'index.html', context)
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', index),
+    url(r'^users/', include("user.urls"))
+
 ]
+
