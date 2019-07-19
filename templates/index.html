@@ -3,25 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .red {
+            color:red
+        }
+        .blue {
+            color: blue;
+        }
+
+
+    </style>
 
 </head>
 <body>
-<ul>
-    {%for line in my_dict.c %}
 
-    <li style="color: {{forloop.counter|divisibleby:"2"|yesno:"red,blue"}}">
-        {{forloop.counter}} {{line|add:"100"}}
-    </li>
-    {%endfor%}
+<ul >
+    {% for x in c %}
+    <li class="{% cycle 'red' 'blue' %}">{{x|add:100}} </li>
+    {% endfor %}
 </ul>
-
-<table>
-    {% for x in data %}
+<table border="1">
+    {% for foo in data %}
     {% if forloop.counter0|divisibleby:9 %}<tr>{% endif %}
-        <td>{{x}}</td>
+        <td>{{foo}}</td>
     {% if forloop.counter|divisibleby:9 %}</tr>{% endif %}
     {% endfor %}
+
+
 </table>
+<hr>
+{% load myfilters %}
+
+
+
 
 
 

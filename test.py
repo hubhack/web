@@ -1,4 +1,7 @@
+import bcrypt
 
-d = {'page':2, 'size':1}
-def fun():
 
+password = b'12233'
+x = bcrypt.hashpw(password, bcrypt.gensalt())
+print(x)
+print(bcrypt.checkpw(password, x))

@@ -22,23 +22,26 @@ from django.shortcuts import render
 
 def index(request:HttpResponse):
     """视图函数:请求进来返回响应"""
-    my_dict = {
+    context = {
         'a':100,
         'b':0,
         'c':list(range(10,20)),
-        'd':'abc', 'date':datetime.datetime.now()
+        'd':'abc', 'date':datetime.datetime.now(),
+        'data':['{}*{}={}'.format(j, i, j*i) for i in range(1, 10)for j in range(1, 10)]
     }
 
-    data = ['{}*{}={}'.format(j, i, j*i) for i in range(1, 10)for j in range(1, 10)]
 
-    context = {'content': 'www.magedu.com', 'my_dict':my_dict, 'data':data}
+
+    # context = {'content': 'www.magedu.com', 'my_dict':my_dict, 'data':data}
     return render(request, 'index.html', context)
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index),
-    url(r'^users/', include("user.urls"))
+    url(r'^users/', include("user.urls")),
+    url(r'^posts/', include('post.urls')),
+
 
 ]
 

@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'user', # 写插件名字
+    'post',
+
 ]
 
 MIDDLEWARE = [
