@@ -3,3 +3,4 @@ backend/.idea/
 backend/__pycache__/
 backend/blog/__pycache__/
 backend/blog/__pycache__/
+frontend/node_modules/
