@@ -2,5 +2,8 @@
 backend/.idea/
 backend/__pycache__/
 backend/blog/__pycache__/
-backend/blog/__pycache__/
+backend/blog/venv/
+backend/blog/.idea/
 frontend/node_modules/
+frontend/t.html/
+frontend/t.js/
