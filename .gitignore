@@ -9,3 +9,4 @@ frontend/t.html/
 frontend/t.js/
 mysqlclient-1.4.2-cp37-cp37m-win_amd64.whl
 backend/mysqlclient-1.4.2-cp37-cp37m-win_amd64.whl
+backend/blog/
